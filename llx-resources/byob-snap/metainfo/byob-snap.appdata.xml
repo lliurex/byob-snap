@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<component type="desktop-application">
+<id>byob-snap</id>
+<metadata_license>CC0-1.0</metadata_license>
+<name>Snap!</name>
+<summary>A visual, drag-and-drop programming language</summary>
+<summary xml:lang="es">Un lenguaje de programación visual (arrastra y suelta) </summary>
+<summary xml:lang="ca_ES@valencia">Un llenguatge de programació visual (arrossega i solta)</summary>
+<summary xml:lang="ca">Un llenguatge de programació visual (arrossega i solta)</summary>
+<summary xml:lang="ca_ES.UTF-8@valencia">Un llenguatge de programació visual (arrossega i solta)</summary>
+<description>
+<p>A visual, drag-and-drop programming language</p>
+<p xml:lang="es">Un lenguaje de programación visual (arrastra y suelta) </p>
+<p xml:lang="ca_ES@valencia">Un llenguatge de programació visual (arrossega i solta)</p>
+<p xml:lang="ca">Un llenguatge de programació visual (arrossega i solta)</p>
+<p xml:lang="ca_ES.UTF-8@valencia">Un llenguatge de programació visual (arrossega i solta)</p>
+</description>
+<categories>
+<category>Education</category>
+</categories>
+<icon type="stock">alonzo</icon>
+<provides><binary>firefox</binary></provides>
+<keywords>
+<keyword>Snap!</keyword>
+
+</keywords>
+<developer_name>Lliurex Team</developer_name>
+</component>

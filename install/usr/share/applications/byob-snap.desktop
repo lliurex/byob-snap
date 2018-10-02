@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Snap!
+Comment=A visual, drag-and-drop programming language
+Comment[es]=Un lenguaje de programación visual (arrastra y suelta) 
+Comment[ca_ES@valencia]=Un llenguatge de programació visual (arrossega i solta)
+Comment[ca_ES.UTF-8@valencia]=Un llenguatge de programació visual (arrossega i solta)
+Exec=xdg-open /usr/share/byob-snap/snap.html
+TryExec=xdg-open /usr/share/byob-snap/snap.html
+Terminal=false
+Type=Application
+Icon=alonzo
+Categories=Education;
