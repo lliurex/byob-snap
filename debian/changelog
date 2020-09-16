@@ -1,3 +1,10 @@
+byob-snap (6.1.4+lliurex1) focal; urgency=medium
+
+  * Updated to version 6.1.4
+  * Initial relase for focal
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 16 Sep 2020 09:17:25 +0200
+
 byob-snap (4.2.1.3+lliurex4) bionic; urgency=medium
 
   * Initial release for bionic
