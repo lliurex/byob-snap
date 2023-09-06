@@ -1,3 +1,9 @@
+byob-snap (6.1.4+lliurex11) jammy; urgency=medium
+
+  * Initial release for Jammy
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 06 Sep 2023 12:56:22 +0200
+
 byob-snap (6.1.4+lliurex1) focal; urgency=medium
 
   * Updated to version 6.1.4
