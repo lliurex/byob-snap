@@ -1,0 +1,13 @@
+Source: byob-snap
+Section: education
+Priority: optional
+Maintainer: Lliurex Team <lliurex@edu.gva.es>
+Build-Depends: llxsrchelper,debhelper (>=10)
+Standards-Version: 4.1.2
+Homepage: http://www.lliurex.net
+
+Package: byob-snap
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Snap
+ A visual drag and drop programming language
