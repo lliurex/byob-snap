@@ -54,14 +54,18 @@
         - select primary color with right-click (in addition to shift-click)
     2020, April 15 (Jens):
         - migrated to new Morphic2 architecture
+    2021, March 17 (Jens):
+        - moved stage dimension handling to scenes
 */
 
-/*global Point, Object, Rectangle, AlignmentMorph, Morph, XML_Element, nop,
-PaintColorPickerMorph, Color, SliderMorph, InputFieldMorph, ToggleMorph,
-TextMorph, Image, newCanvas, PaintEditorMorph, StageMorph, Costume, isNil,
-localize, PaintCanvasMorph, StringMorph, detect, modules*/
+/*global Point, Object, Rectangle, AlignmentMorph, Morph, XML_Element, localize,
+PaintColorPickerMorph, Color, SliderMorph, InputFieldMorph, ToggleMorph, isNil,
+TextMorph, Image, newCanvas, PaintEditorMorph, Costume, nop, PaintCanvasMorph,
+StringMorph, detect, modules*/
 
-modules.sketch = '2020-July-13';
+/*jshint esversion: 6*/
+
+modules.sketch = '2023-May-24';
 
 // Declarations
 
@@ -979,9 +983,9 @@ VectorPaintEditorMorph.prototype.buildEdits = function () {
             function () {
                 if (myself.shapes.length > 0) {
                     myself.ide.confirm(
-                        'This will convert your vector objects into\n' +
-                        'bitmaps, and you will not be able to convert\n' +
-                        'them back into vector drawings.\n' +
+                        'This will convert your vector objects into ' +
+                        'bitmaps, and you will not be able to convert ' +
+                        'them back into vector drawings. ' +
                         'Are you sure you want to continue?',
                         'Convert to bitmap?',
                         () => {
@@ -999,7 +1003,7 @@ VectorPaintEditorMorph.prototype.buildEdits = function () {
 };
 
 VectorPaintEditorMorph.prototype.convertToBitmap = function () {
-    var canvas = newCanvas(StageMorph.prototype.dimensions),
+    var canvas = newCanvas(this.ide.stage.dimensions),
         myself = this;
 
     this.object = new Costume();
@@ -1053,7 +1057,14 @@ VectorPaintEditorMorph.prototype.openIn = function (
     var myself = this,
         isEmpty = isNil(shapes) || shapes.length === 0;
 
-    VectorPaintEditorMorph.uber.openIn.call(this, world, null, oldrc, callback, anIDE);
+    VectorPaintEditorMorph.uber.openIn.call(
+        this,
+        world,
+        null,
+        oldrc,
+        callback,
+        anIDE
+    );
     this.ide = anIDE;
     this.paper.drawNew();
     this.paper.changed();
@@ -1203,7 +1214,7 @@ VectorPaintEditorMorph.prototype.buildContents = function() {
 
     this.paper.destroy();
     this.paper = new VectorPaintCanvasMorph(myself.shift);
-    this.paper.setExtent(StageMorph.prototype.dimensions);
+    this.paper.setExtent(this.ide.stage.dimensions);
     this.body.add(this.paper);
 
     this.refreshToolButtons();
@@ -1304,6 +1315,9 @@ VectorPaintEditorMorph.prototype.populatePropertiesMenu = function () {
             this.action(this.getPixelColor(pos), true);
         }
     };
+
+    // also allow selecting the fill color via touch-hold
+    pc.colorpicker.mouseClickRight = pc.colorpicker.mouseDownRight;
 
     pc.colorpicker.action(new Color(0, 0, 0)); // secondary color
     pc.colorpicker.action('transparent', true);
